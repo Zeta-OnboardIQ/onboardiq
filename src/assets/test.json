@@ -1,0 +1,51 @@
+{
+   "profiles": [
+        {
+            "entity": "Zhang Wei",
+            "type": "name",
+            "confidence": "0.99+"
+        },
+        {
+            "entity": "112345",
+            "type": "credit card number",
+            "confidence": "0.99+"
+        },
+        {
+            "entity": "02-20-14",
+            "type": "date of birth",
+            "confidence": "0.99+"
+        },
+        {
+            "entity": "123 main street",
+            "type": "address",
+            "confidence": "0.99+"
+        },
+        {
+            "entity": "zz@gmail.com",
+            "type": "email",
+            "confidence": "0.99+"
+        },
+        {
+            "entity": "Thomas",
+            "type": "name",
+            "confidence": "0.99+"
+        }
+   ],
+   "headers": [
+        {
+            "header": "name"
+        },
+        {
+            "header": "credit card number"
+        },
+        {
+            "header": "date of birth"
+        },
+        {
+            "header": "address"
+        },
+        {
+            "header": "email"
+        }
+   ]
+}

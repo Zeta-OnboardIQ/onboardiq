@@ -1,8 +1,13 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.table-container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 50vw;
 }
 
 .logo {
@@ -35,6 +40,13 @@
 
 .card {
   padding: 2em;
+}
+
+.table {
+    /* min-width: 50vw; */
+    &.--headers {
+        /* max-width: 200px; */
+    }
 }
 
 .read-the-docs {
