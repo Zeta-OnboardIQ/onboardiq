@@ -8,7 +8,22 @@
     display: flex;
     justify-content: space-between;
     min-width: 25vw;
+    gap: 100px;
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 }
+
+.table {
+    max-width: 35vw;
+    &.--headers {
+        max-width: 300px;
+    }
+}
+
 
 .logo {
   height: 6em;
@@ -42,12 +57,6 @@
   padding: 2em;
 }
 
-.table {
-    max-width: 40vw;
-    &.--headers {
-        max-width: 300px;
-    }
-}
 
 .read-the-docs {
   color: #888;

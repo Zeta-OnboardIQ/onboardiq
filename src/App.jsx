@@ -138,7 +138,7 @@ function App() {
         return (
             <>
             <div className='table-container'>
-                <div>
+                <div className='profile-container'>
                     <div className='table'>
                         <h1>
                             Profiles
@@ -155,7 +155,7 @@ function App() {
                     </div>
                     <div className='table --headers'>
                         <h1>
-                            Profile Headers
+                            Headers
                         </h1>
                         <MaterialReactTable
                             columns={profileHeaderColumns}
@@ -207,7 +207,7 @@ function App() {
         
         return (
         <>
-            <h3>Step 3: Correct and Teach the Model</h3>
+            <h3>Step 2: Check the data</h3>
             <Tabs>
                 <TabList>
                 {tabs}
