@@ -1,12 +1,13 @@
-import { useState, useEffect, createContext, useContext, useMemo } from 'react'
+import { useState, useEffect, createContext, useContext, useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import PropTypes from "prop-types";
-import testData from './assets/test.json'
-import profileHeadersData from './assets/profile_headers.json'
+import testData from './assets/test.json';
+import profileHeadersData from './assets/profile_headers.json';
+import testCampaignData from './assets/testCampaignData.json';
 import axios from 'axios';
-import './App.css'
+import './App.css';
 
 const DataContext = createContext(null);
 const FileNameContext = createContext(null);
@@ -67,7 +68,19 @@ function App() {
     const selectedFileList = () => selectedFiles.map((file, i) => <div key={i}>{i+1}. {file.name}</div>)
 
     const CurrentFileView = () => {
+        const [rowSelection, setRowSelection] = useState({});
         const [profiles, setProfiles] = useState(() => testData.profiles);
+        const [emailList, setEmailList] = useState(() => testData.profiles.map(profile => profile.EMAIL_ADDRESS));
+        const [campaignData, setCampaignData] = useState(() => {
+            testCampaignData.forEach(event => event.properties = JSON.stringify(event.properties).replaceAll('\\', '').replaceAll(`"`, ''))
+            return testCampaignData;
+        })
+        useEffect(() => {
+            console.info('row selection -->', rowSelection);
+            console.log(Object.keys(rowSelection)[0])
+            console.log('email list', emailList);
+            console.log('campaigndata-->', campaignData)
+        }, [rowSelection])
         const profileColumns = [
             {
                 accessorKey: 'EMAIL_ADDRESS',
@@ -108,26 +121,20 @@ function App() {
                 header: 'profile_headers',
             },
         ];
-        const eventTable = () => {
-            const rows = [(<tr>
-                <th>Key</th>
-                <th>Value</th>
-                <th>Does this belong in profile?</th>
-              </tr>)];
-            const eventProperties = testData.events[0].properties;
-            for (const property in eventProperties) {
-                rows.push(<tr>
-                    <td>{property}</td>
-                    <td>{eventProperties[property] ? eventProperties[property] : "null"}</td>
-                    <td><input type="checkbox" id={property} name={property} value={eventProperties[property]}/></td>
-                  </tr>)
+        const eventTableColumns = [
+            {
+                accessorKey: 'email',
+                header: 'Email'
+            },
+            {
+                accessorKey: 'event_type',
+                header: 'event_type',
+            },
+            {
+                accessorKey: 'properties',
+                header: 'Properties',
             }
-            return (
-                <table>
-                    {rows}
-                </table>
-            )
-        }
+        ]
         return (
             <>
             <div className='table-container'>
@@ -139,6 +146,11 @@ function App() {
                         <MaterialReactTable
                             columns={profileColumns}
                             data={testData.profiles}   
+                            enableRowSelection
+                            enableMultiRowSelection={false}
+                            onRowSelectionChange={setRowSelection}
+                            state={{ rowSelection }}
+                            getRowId={(originalRow) => originalRow.userId}
                             />
                     </div>
                     <div className='table --headers'>
@@ -148,14 +160,24 @@ function App() {
                         <MaterialReactTable
                             columns={profileHeaderColumns}
                             data={profileHeadersData}
-                            />
+                        />
                     </div>
                 </div>
                 <div className='table'>
                     <h1>
                         Events
                     </h1>
-                    {eventTable()}
+                    <MaterialReactTable
+                        columns={eventTableColumns}
+                        data={campaignData}
+                        initialState={{
+                            showGlobalFilter: true, //show the global filter by default
+                        }}
+                        muiSearchTextFieldProps={{
+                            id: 'search-events',
+                            value: rowSelection ? emailList[Object.keys(rowSelection)[0]] : null,
+                        }}
+                    />
                 </div>
             </div>
             </>
@@ -179,8 +201,6 @@ function App() {
         const tabPanels = tabNames.map((name, i) => 
             (<TabPanel key={i}>
                 <CurrentFileView
-                // sampleData={sampleData}
-                // headerData={headerData}
                 />
             </TabPanel>)
         );
