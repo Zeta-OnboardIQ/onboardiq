@@ -7,7 +7,7 @@
 .table-container {
     display: flex;
     justify-content: space-between;
-    min-width: 50vw;
+    min-width: 25vw;
 }
 
 .logo {
@@ -43,9 +43,9 @@
 }
 
 .table {
-    /* min-width: 50vw; */
+    max-width: 40vw;
     &.--headers {
-        /* max-width: 200px; */
+        max-width: 300px;
     }
 }
 
@@ -55,4 +55,8 @@
 
 .file-uploader {
     padding-bottom: 50px;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }

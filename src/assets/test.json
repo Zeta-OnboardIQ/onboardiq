@@ -1,51 +1,144 @@
 {
-   "profiles": [
-        {
-            "entity": "Zhang Wei",
-            "type": "name",
-            "confidence": "0.99+"
+    "profiles": [
+    {
+        "UNKNOWN": "2023-07-20T09:12:29Z",
+        "FIRST_NAME": "Tricia",
+        "LAST_NAME": "Holliday",
+        "EMAIL_ADDRESS": "tricia@decoderringconsulting.com"
+    },
+    {
+        "UNKNOWN": "2023-07-20T09:12:29Z",
+        "CITY": "Vienna",
+        "ADDRESS_LINE_1": "VA 22180, USA",
+        "COUNTRY": "United States",
+        "ZIP": "22180",
+        "STATE": "VA",
+        "EMAIL_ADDRESS": "scott_vanderbilt@navyfederal.org"
+    }
+    ],
+    "events": [
+    {
+        "properties": {
+        "ab_activity": "t",
+        "act_activity": "f",
+        "address_line_1": null,
+        "address_line_2": null,
+        "all_last_clicked": null,
+        "all_last_delivered": "2023-07-19T17:04:01Z",
+        "all_last_opened": null,
+        "arz_activity": "f",
+        "asr_activity": "f",
+        "bb_activity": "f",
+        "bic_activity": "f",
+        "brand_all_activity": "t",
+        "city": null,
+        "combined_address": null,
+        "combined_city": null,
+        "combined_company_name": "DECODER RING CONSULT",
+        "combined_country": null,
+        "combined_first_name": "Tricia",
+        "combined_industry": "Professional Services",
+        "combined_job_role": null,
+        "combined_job_title": null,
+        "combined_last_name": "Holliday",
+        "combined_postal_code": null,
+        "combined_state": null,
+        "combined_work_phone": null,
+        "country": null,
+        "cuj_activity": "f",
+        "digin_activity": "f",
+        "eba_activity": "f",
+        "ebn_activity": "f",
+        "editorial": "t",
+        "email": "tricia@decoderringconsulting.com",
+        "email_domain": "decoderringconsulting.com",
+        "emailable": "f",
+        "first_name": "Tricia",
+        "fp_activity": "f",
+        "hdm_activity": "f",
+        "im_activity": "f",
+        "last_name": "Holliday",
+        "maj_activity": "f",
+        "marketable": "f",
+        "marketing_signed_up_at": "2023-07-19T13:56:49Z",
+        "mme_activity": "f",
+        "nmn_activity": "f",
+        "ows_activity": "f",
+        "phone": null,
+        "postal_address": null,
+        "postal_code": null,
+        "pso_activity": "f",
+        "source_create_date": "2023-07-19T13:56:47Z",
+        "state": null,
+        "timestamp": "2023-07-20T09:12:29Z",
+        "tpt_activity": "f"
         },
-        {
-            "entity": "112345",
-            "type": "credit card number",
-            "confidence": "0.99+"
+        "EMAIL_ADDRESS": "tricia@decoderringconsulting.com"
+    },
+    {
+        "properties": {
+        "ab_activity": "t",
+        "act_activity": "f",
+        "address_line_1": null,
+        "address_line_2": null,
+        "all_last_clicked": null,
+        "all_last_delivered": "2023-07-19T17:48:22Z",
+        "all_last_opened": null,
+        "arz_activity": "f",
+        "asr_activity": "f",
+        "bb_activity": "f",
+        "bic_activity": "f",
+        "brand_all_activity": "t",
+        "city": null,
+        "combined_address": "Vienna, VA 22180, USA",
+        "combined_city": "Vienna",
+        "combined_company_name": "Navy Federal Credit Union",
+        "combined_country": "United States",
+        "combined_first_name": null,
+        "combined_industry": "Banks",
+        "combined_job_role": null,
+        "combined_job_title": null,
+        "combined_last_name": null,
+        "combined_postal_code": "22180",
+        "combined_state": "VA",
+        "combined_work_phone": null,
+        "country": null,
+        "cuj_activity": "f",
+        "digin_activity": "f",
+        "eba_activity": "f",
+        "ebn_activity": "f",
+        "editorial": "t",
+        "email": "scott_vanderbilt@navyfederal.org",
+        "email_domain": "navyfederal.org",
+        "emailable": "f",
+        "fp_activity": "f",
+        "hdm_activity": "f",
+        "im_activity": "f",
+        "maj_activity": "f",
+        "marketable": "f",
+        "marketing_signed_up_at": "2023-07-19T17:48:18Z",
+        "mme_activity": "f",
+        "nmn_activity": "f",
+        "ows_activity": "f",
+        "phone": null,
+        "postal_address": null,
+        "postal_code": null,
+        "pso_activity": "f",
+        "source_create_date": "2023-07-19T17:48:18Z",
+        "state": null,
+        "timestamp": "2023-07-20T09:12:29Z",
+        "tpt_activity": "f"
         },
-        {
-            "entity": "02-20-14",
-            "type": "date of birth",
-            "confidence": "0.99+"
-        },
-        {
-            "entity": "123 main street",
-            "type": "address",
-            "confidence": "0.99+"
-        },
-        {
-            "entity": "zz@gmail.com",
-            "type": "email",
-            "confidence": "0.99+"
-        },
-        {
-            "entity": "Thomas",
-            "type": "name",
-            "confidence": "0.99+"
-        }
-   ],
-   "headers": [
-        {
-            "header": "name"
-        },
-        {
-            "header": "credit card number"
-        },
-        {
-            "header": "date of birth"
-        },
-        {
-            "header": "address"
-        },
-        {
-            "header": "email"
-        }
-   ]
+        "EMAIL_ADDRESS": "scott_vanderbilt@navyfederal.org"
+    }
+    ],
+    "profile_headers": {
+    "timestamp": "UNKNOWN",
+    "combined_first_name": "FIRST_NAME",
+    "combined_last_name": "LAST_NAME",
+    "email": "EMAIL_ADDRESS",
+    "combined_address": "STATE",
+    "combined_country": "COUNTRY"
+    },
+    "request_id": "c477dfa2-5b40-4e4b-9f76-a0b93dbac0de"
 }

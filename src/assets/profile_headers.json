@@ -1,0 +1,32 @@
+[
+    {
+        "header": "EMAIL_ADDRESS"
+    },
+    {
+        "header": "PHONE_NUMBER"
+    },
+    {
+        "header": "FIRST_NAME"
+    },
+    {
+        "header": "LAST_NAME"
+    },
+    {
+        "header": "ADDRESS_LINE_1"
+    },
+    {
+        "header": "ADDRESS_LINE_2"
+    },
+    {
+        "header": "CITY"
+    },
+    {
+        "header": "STATE"
+    },
+    {
+        "header": "ZIP"
+    },
+    {
+        "header": "COUNTRY"
+    }
+]
