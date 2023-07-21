@@ -8,6 +8,7 @@ import profileHeadersData from './assets/profile_headers.json';
 import testCampaignData from './assets/testCampaignData.json';
 import axios from 'axios';
 import './App.css';
+import { Ring } from '@uiball/loaders'
 
 const DataContext = createContext(null);
 const FileNameContext = createContext(null);
@@ -16,6 +17,7 @@ function App() {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [endpointPayload, setEndpointPayload] = useState(null);
     const [fileNameList, setFileNameList] = useState([]);
+    const [showSpinner, setShowSpinner] = useState(false);
 
     useEffect(() => {
         console.log('selectedFiles', selectedFiles, selectedFiles.length);
@@ -31,39 +33,24 @@ function App() {
         setSelectedFiles(Array.prototype.slice.call(event.target.files))
     };
 
-    const onFileUpload = () => {
-        const file = selectedFiles[0];
+    const onFileUpload = async () => {
         const formData = new FormData();
-        formData.append("file", file);
-        axios
-        .post("https://dc-onboardiq.preprod.zetaglobal.io/upload/", formData, {
+    
+        for (let file of selectedFiles) {
+          formData.append("files", file);
+        }
+    
+        try {
+          await axios.post("https://dc-onboardiq.preprod.zetaglobal.io/upload/", formData, {
             headers: {
-            "Content-Type": "multipart/form-data",
+              "Content-Type": "multipart/form-data",
             },
-        })
-        .then((response) => {
-            // handle the response
-            console.log('response-->', response);
-        })
-        .catch((error) => {
-            // handle errors
-            console.log(error);
-        });
-        // axios.post("https://dc-onboardiq.preprod.zetaglobal.io/upload/", {
-        //     file: selectedFiles[0]})
-        // .then(response => console.log('response from endpoint -->', response));
-
-        // testing with a get request to the pokemon api
-        // TODO: replace this with post request to 'upload/'
-        // axios
-        //     .get('https://pokeapi.co/api/v2/pokemon/ditto/')
-        //     .then(response => {
-        //         console.log('endpoint upload response -->', response.data)
-        //         return response.data;
-        //     })
-        //     .then(data => setEndpointPayload(data))
-        setEndpointPayload(testData)
-    };
+          }).then(data => setEndpointPayload(data));
+          console.log("Files uploaded successfully!");
+        } catch (error) {
+          console.error("Error uploading files:", error);
+        }
+      };
 
     const selectedFileList = () => selectedFiles.map((file, i) => <div key={i}>{i+1}. {file.name}</div>)
 
@@ -246,9 +233,19 @@ function App() {
                 </div>}
         </div>
         </> : null}
+            {showSpinner ? (<div>
+            Uploading your file!
+            <Ring 
+            size={40}
+            lineWeight={5}
+            speed={2} 
+            color="black"/>
+            </div>) : null}
         <div className='file-tabs'>
             {endpointPayload ? <FileTabs/> : null}
         </div> 
+
+        {endpointPayload ? <button>Push to ZMP</button> : null}
                     
         </FileNameContext.Provider>
         </DataContext.Provider>
